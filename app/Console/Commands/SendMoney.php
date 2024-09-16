@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\User;
 use Illuminate\Console\Command;
 
 class SendMoney extends Command
@@ -30,17 +31,17 @@ class SendMoney extends Command
         $receiver = User::find($receiverId);
 
         if (!$sender) {
-            $this->error('Sender not found');
+            $this->error('Sender user not exists');
             return 1;
         }
 
         if (!$receiver) {
-            $this->error('Receiver not found');
+            $this->error('Receiver user not exists');
             return 1;
         }
 
         if ($sender->balance < $amount) {
-            $this->error('Insufficient balance');
+            $this->error("Your balance is $sender->balance and sending amount is $amount ! We can not do this operation!");
             return 1;
         }
 
