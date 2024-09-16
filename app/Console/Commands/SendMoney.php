@@ -51,9 +51,9 @@ class SendMoney extends Command
         $sender->save();
         $receiver->save();
 
-        $this->info("Sent $amount from user {$sender->id} to user {$receiver->id}.");
-        $this->info("New balance for sender {$sender->id}: {$sender->balance}");
-        $this->info("New balance for receiver {$receiver->id}: {$receiver->balance}");
+        $this->info("Sent $amount from user with id:{$sender->id} to user with id:{$receiver->id}.");
+        $this->info("New balance for sender user with id:{$sender->id}: {$sender->balance}");
+        $this->info("New balance for receiver user with id:{$receiver->id}: {$receiver->balance}");
 
         return 0;
     }
